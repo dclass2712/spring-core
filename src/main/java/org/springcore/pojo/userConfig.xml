@@ -1,0 +1,17 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:integration="http://www.springframework.org/schema/integration"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/integration
+           http://www.springframework.org/schema/integration/spring-integration-1.0.xsd">
+
+    <bean class="org.springcore.pojo.Address" name="add1" p:cityName="Ratlam" p:cityPin="123456"/>
+    <bean class="org.springcore.pojo.User" name="user2" init-method="init" destroy-method="destroy">
+        <constructor-arg value="asd" type="String"/>
+        <constructor-arg value="787" type="String"/>
+        <constructor-arg ref="add1" type="Address"/>
+    </bean>
+</beans>

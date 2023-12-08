@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+    <bean class="org.springcore.autowiring.Address" name="address">
+        <property name="addressCity" value="Indore"/>
+        <property name="addressPin" value="452011"/>
+    </bean>
+
+    <bean class="org.springcore.autowiring.Address" name="employeeAddress">
+        <property name="addressCity" value="Bhopal"/>
+        <property name="addressPin" value="462001"/>
+    </bean>
+
+<!--    property "autowire" will check whether bean "employeeAddress" is available in the setter or constructor? or not!, if available then it will automatically autowire with employee object-->
+    <bean class="org.springcore.autowiring.Employee" name="employee" autowire="byName" p:employeeName = "same"/>
+
+</beans>
